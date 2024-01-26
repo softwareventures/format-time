@@ -30,3 +30,9 @@ export function timeTemplate(
 export function hours(time: {readonly hours: number}): string {
     return String(time.hours);
 }
+
+/** Formats the hours portion of the specified {@link Time} as a 2-digit
+ * 24-hour numeric string. */
+export function hours2(time: {readonly hours: number}): string {
+    return String(time.hours).padStart(2, "0");
+}
