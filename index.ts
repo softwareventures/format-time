@@ -48,3 +48,5 @@ export function hours12(time: {readonly hours: number}): string {
 export function hours122(time: {readonly hours: number}): string {
     return String((12 + (time.hours % 12)) % 12).padStart(2, "0");
 }
+
+export type AmPm = "AM" | "PM";
