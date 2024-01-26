@@ -1,6 +1,6 @@
 import test from "ava";
-import {iso8601, secondsMs} from "./index";
 import {time} from "@softwareventures/time";
+import {humanIso8601, iso8601, secondsMs} from "./index";
 
 test("secondsMs", t => {
     t.is(secondsMs({seconds: 0.001}), "00.001");
@@ -30,4 +30,10 @@ test("iso8601", t => {
     );
     t.is(iso8601()(time({})), "T00:00:00");
     t.is(iso8601()(time({hours: 13, minutes: 5, seconds: 30})), "T13:05:30");
+});
+
+test("humanIso8601", t => {
+    t.is(humanIso8601(time({hours: 11, minutes: 58, seconds: 27.63981})), "11:58:27");
+    t.is(humanIso8601(time({})), "00:00:00");
+    t.is(humanIso8601(time({hours: 13, minutes: 5, seconds: 30})), "13:05:30");
 });

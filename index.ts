@@ -167,3 +167,9 @@ export function iso8601(options: Iso8601Options = {}): TimeFormatter {
     }[options.round ?? "none"];
     return timeTemplate`${leading}${hours2}${separator}${minutes2}${separator}${seconds}`;
 }
+
+/** Formats the specified {@link Time} as ISO 8601 extended, rounded down to
+ * the next lower second, and with no leading `"T"`.
+ *
+ * This format is intended to be reasonable for display to humans. */
+export const humanIso8601 = iso8601({round: "seconds", leadingT: false});
