@@ -62,3 +62,9 @@ export function amPm(time: {readonly hours: number}): AmPm {
 export function minutes(time: {readonly minutes: number}): string {
     return String(time.minutes);
 }
+
+/** Formats the minutes portion of the specified {@link Time} as a
+ * 2-digit numeric string. */
+export function minutes2(time: {readonly minutes: number}): string {
+    return String(time.minutes).padStart(2, "0");
+}
