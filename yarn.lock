@@ -1013,6 +1013,7 @@ __metadata:
     "@softwareventures/precise-commits": "npm:3.0.9"
     "@softwareventures/prettier-config": "npm:4.0.0"
     "@softwareventures/semantic-release-config": "npm:3.1.0"
+    "@softwareventures/time": "npm:^2.0.0"
     "@softwareventures/tsconfig": "npm:7.0.0"
     "@types/node": "npm:17.0.45"
     "@typescript-eslint/eslint-plugin": "npm:5.54.1"
@@ -1045,7 +1046,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@softwareventures/nullable@npm:^1.0.0 || ^2.0.0 || ^3.0.0":
+"@softwareventures/nullable@npm:^1.0.0 || ^2.0.0 || ^3.0.0, @softwareventures/nullable@npm:^3.2.0":
   version: 3.2.0
   resolution: "@softwareventures/nullable@npm:3.2.0"
   dependencies:
@@ -1054,7 +1055,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@softwareventures/ordered@npm:^1.1.0 || ^2.0.0":
+"@softwareventures/ordered@npm:^1.0.0 || ^2.0.0, @softwareventures/ordered@npm:^1.1.0 || ^2.0.0":
   version: 2.0.0
   resolution: "@softwareventures/ordered@npm:2.0.0"
   dependencies:
@@ -1104,6 +1105,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@softwareventures/time@npm:^2.0.0":
+  version: 2.1.0
+  resolution: "@softwareventures/time@npm:2.1.0"
+  dependencies:
+    "@softwareventures/nullable": "npm:^3.2.0"
+    "@softwareventures/ordered": "npm:^1.0.0 || ^2.0.0"
+    "@types/is-integer": "npm:1.0.2"
+    is-integer: "npm:^1.0.7"
+    is-integer-in-range: "npm:^3.0.1 || ^4.0.0"
+    tslib: "npm:^1.9.3 || ^2.0.0 || ^2.1.0"
+    unknown: "npm:^0.2.5"
+  checksum: e6874103f9be3f8ff687475e635a087a32da31e5f6c3d21593684fb55f17d0a33bb75c918f17acf90d6c1b3d11df02ceec5990748f209909bacf436a16fa00d8
+  languageName: node
+  linkType: hard
+
 "@softwareventures/tsconfig@npm:7.0.0":
   version: 7.0.0
   resolution: "@softwareventures/tsconfig@npm:7.0.0"
@@ -1145,6 +1161,13 @@ __metadata:
   version: 1.0.4
   resolution: "@tsconfig/node16@npm:1.0.4"
   checksum: 05f8f2734e266fb1839eb1d57290df1664fe2aa3b0fdd685a9035806daa635f7519bf6d5d9b33f6e69dd545b8c46bd6e2b5c79acb2b1f146e885f7f11a42a5bb
+  languageName: node
+  linkType: hard
+
+"@types/is-integer@npm:1.0.2, @types/is-integer@npm:^1.0.0":
+  version: 1.0.2
+  resolution: "@types/is-integer@npm:1.0.2"
+  checksum: 412ff56482710d981218916e86e36c4d8947e6866707f92e880d4396ae8f36dacd4e694bb766ecdfe985c3530a14d5624cb28382a413f899a82c5e98ef625000
   languageName: node
   linkType: hard
 
@@ -4417,6 +4440,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-finite@npm:^1.0.0":
+  version: 1.1.0
+  resolution: "is-finite@npm:1.1.0"
+  checksum: ca6bc7a0321b339f098e657bd4cbf4bb2410f5a11f1b9adb1a1a9ab72288b64368e8251326cb1f74e985f2779299cec3e1f1e558b68ce7e1e2c9be17b7cfd626
+  languageName: node
+  linkType: hard
+
 "is-fullwidth-code-point@npm:^3.0.0":
   version: 3.0.0
   resolution: "is-fullwidth-code-point@npm:3.0.0"
@@ -4437,6 +4467,26 @@ __metadata:
   dependencies:
     is-extglob: "npm:^2.1.1"
   checksum: 17fb4014e22be3bbecea9b2e3a76e9e34ff645466be702f1693e8f1ee1adac84710d0be0bd9f967d6354036fd51ab7c2741d954d6e91dae6bb69714de92c197a
+  languageName: node
+  linkType: hard
+
+"is-integer-in-range@npm:^3.0.1 || ^4.0.0":
+  version: 4.0.0
+  resolution: "is-integer-in-range@npm:4.0.0"
+  dependencies:
+    "@types/is-integer": "npm:^1.0.0"
+    is-integer: "npm:^1.0.7"
+    tslib: "npm:2.4.0"
+  checksum: 2071539c01b19a9c863c017d7e8983e359cea09f104f474f670dbbf11908482f35fa2cf30f44077eca01f411a50e25d95a81f37239d48edbccafa94819347dc1
+  languageName: node
+  linkType: hard
+
+"is-integer@npm:^1.0.7":
+  version: 1.0.7
+  resolution: "is-integer@npm:1.0.7"
+  dependencies:
+    is-finite: "npm:^1.0.0"
+  checksum: 4f4835ee63b826e050a246efe97b4bfbe8e23d5cba86399ac2df32bfd347cf64d6438dd1811a6f6f6cf5a9a21f7d20c1940658e7c6fc0f4fa2fb7e467a8907f0
   languageName: node
   linkType: hard
 
@@ -8075,7 +8125,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unknown@npm:0.2.5":
+"unknown@npm:0.2.5, unknown@npm:^0.2.5":
   version: 0.2.5
   resolution: "unknown@npm:0.2.5"
   checksum: 8313b382826aafea3363e9698032db31093435d572271faea03c7a2d527e47626f0464c4594d999b1c025d038b26d5f7315e36cb001ed1697c3c14771d0b5322
