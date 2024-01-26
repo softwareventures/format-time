@@ -99,3 +99,10 @@ export function floorSeconds(time: {readonly seconds: number}): string {
 export function floorSeconds2(time: {readonly seconds: number}): string {
     return String(Math.floor(time.seconds)).padStart(2, "0");
 }
+
+/** Rounds the seconds portion of the specified {@link Time} down to the
+ * next lower millisecond, and formats the result as a 2.3-digit string. */
+export function secondsMs(time: {readonly seconds: number}): string {
+    const s = String(Math.floor(time.seconds * 1000)).padStart(5, "0");
+    return `${s.substring(0, 2)}.${s.substring(2)}`;
+}
