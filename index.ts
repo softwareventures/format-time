@@ -68,3 +68,12 @@ export function minutes(time: {readonly minutes: number}): string {
 export function minutes2(time: {readonly minutes: number}): string {
     return String(time.minutes).padStart(2, "0");
 }
+
+/** Formats the seconds portion of the specified {@link Time} as a
+ * numeric string.
+ *
+ * Note that fractional seconds will not be rounded, so this might produce
+ * a result similar to `"2.234"` */
+export function seconds(time: {readonly seconds: number}): string {
+    return String(time.seconds);
+}
