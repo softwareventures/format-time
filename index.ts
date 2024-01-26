@@ -50,3 +50,9 @@ export function hours122(time: {readonly hours: number}): string {
 }
 
 export type AmPm = "AM" | "PM";
+
+/** Returns `"AM"` or `"PM"` depending on the hour of the specified
+ * {@link Time}. */
+export function amPm(time: {readonly hours: number}): AmPm {
+    return time.hours < 12 ? "AM" : "PM";
+}
