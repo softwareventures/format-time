@@ -56,3 +56,9 @@ export type AmPm = "AM" | "PM";
 export function amPm(time: {readonly hours: number}): AmPm {
     return time.hours < 12 ? "AM" : "PM";
 }
+
+/** Formats the minutes portion of the specified {@link Time} as a
+ * numeric string. */
+export function minutes(time: {readonly minutes: number}): string {
+    return String(time.minutes);
+}
