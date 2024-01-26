@@ -24,3 +24,9 @@ export function timeTemplate(
 ): TimeFormatter {
     return time => concatMap(texts, (text, i) => [text, formatters[i]?.(time)]).join("");
 }
+
+/** Formats the hours portion of the specified {@link Time} as a 24-hour
+ * numeric string. */
+export function hours(time: {readonly hours: number}): string {
+    return String(time.hours);
+}
