@@ -106,3 +106,64 @@ export function secondsMs(time: {readonly seconds: number}): string {
     const s = String(Math.floor(time.seconds * 1000)).padStart(5, "0");
     return `${s.substring(0, 2)}.${s.substring(2)}`;
 }
+
+/** Options for formatting a {@link Time} in ISO 8601 format.
+ *
+ * @see iso8601 */
+export interface Iso8601Options {
+    /** Whether to use the "basic" or "extended" ISO 8601 format. In the
+     * "basic" format, colons are omitted.
+     *
+     * @default "extended" */
+    readonly format?: "basic" | "extended" | undefined;
+
+    /** Whether to round the time down before formatting.
+     *
+     * If set to `"none"`, no rounding is performed.
+     *
+     * If set to `"seconds"`, the time is rounded down to the next lower
+     * second.
+     *
+     * If set to `"ms"`, the time is rounded down to the next lower
+     * millisecond.
+     *
+     * @default "none" */
+    readonly round?: "none" | "seconds" | "ms" | undefined;
+
+    /** Whether to include the optional leading `"T"`.
+     *
+     * @default true */
+    readonly leadingT?: boolean | undefined;
+}
+
+/** Returns a {@link TimeFormatter} that formats the specified {@link Time} as
+ * ISO 8601, with the specified options.
+ *
+ * By default, the {@link Time} is formatted in the "extended" ISO 8601 format,
+ * with the leading `"T"`, and without rounding, for example
+ * `"T11:57:23.723615"`.
+ *
+ * If the `format` option is set to `"basic"`, then the colons are omitted,
+ * for example `"T115723.723615"`.
+ *
+ * If the `round` option is set to `"seconds"`, then the time is rounded down
+ * to the next lower second, for example `"T11:57:23"`.
+ *
+ * If the `round` option is set to `"ms"`, then the time is rounded down to
+ * the next lower millisecond, for example `"T11:57:23.723"`.
+ *
+ * If the `leadingT` option is set to `false`, then the leading `"T"` is
+ * omitted, for example `"11:57:23.363215"`.*/
+export function iso8601(options: Iso8601Options = {}): TimeFormatter {
+    const leading = options.leadingT ?? true ? () => "T" : () => "";
+    const separator = {
+        basic: () => "",
+        extended: () => ":"
+    }[options.format ?? "extended"];
+    const seconds = {
+        none: seconds2,
+        seconds: floorSeconds2,
+        ms: secondsMs
+    }[options.round ?? "none"];
+    return timeTemplate`${leading}${hours2}${separator}${minutes2}${separator}${seconds}`;
+}
