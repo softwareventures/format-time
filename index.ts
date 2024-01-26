@@ -77,3 +77,13 @@ export function minutes2(time: {readonly minutes: number}): string {
 export function seconds(time: {readonly seconds: number}): string {
     return String(time.seconds);
 }
+
+/** Formats the seconds portion of the specified {@link Time} as a numeric
+ * string. If necessary, adds a leading zero to the whole part of the seconds
+ * to ensure the whole part is at least two digits.
+ *
+ * Note that fractional seconds will not be rounded, so this might produce
+ * a result similar to `"02.234"`. */
+export function seconds2(time: {readonly seconds: number}): string {
+    return String(time.seconds).replace(/^\d+/u, s => s.padStart(2, "0"));
+}
