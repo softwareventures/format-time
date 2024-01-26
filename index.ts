@@ -42,3 +42,9 @@ export function hours2(time: {readonly hours: number}): string {
 export function hours12(time: {readonly hours: number}): string {
     return String((12 + (time.hours % 12)) % 12);
 }
+
+/** Formats the hours portion of the specified {@link Time} as a 2-digit
+ * 12-hour numeric string. */
+export function hours122(time: {readonly hours: number}): string {
+    return String((12 + (time.hours % 12)) % 12).padStart(2, "0");
+}
