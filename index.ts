@@ -87,3 +87,9 @@ export function seconds(time: {readonly seconds: number}): string {
 export function seconds2(time: {readonly seconds: number}): string {
     return String(time.seconds).replace(/^\d+/u, s => s.padStart(2, "0"));
 }
+
+/** Rounds the seconds portion of the specified {@link Time} down and
+ * formats the result as a numeric string. */
+export function floorSeconds(time: {readonly seconds: number}): string {
+    return String(Math.floor(time.seconds));
+}
